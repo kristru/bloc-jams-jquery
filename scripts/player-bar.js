@@ -31,12 +31,13 @@
     player.skipTo(event.target.value);
   });
 
-  setInterval(() =>{
-    if(player.playState !== 'playing'){return;}
+  setInterval(()=>{
+    if (player.playState !== 'playing'){return;}
     const currentTime = player.getTime();
     const duration = player.getDuration();
-    const percent = (currentTime / durations) * 100;
+    const percent = (currentTime / duration) * 100;
     $('#time-control .current-time').text(currentTime);
     $('#time-control input').val(percent);
-  }, 1000);
+  },1000);
+
 }
