@@ -14,15 +14,18 @@ class Player {
     return this.soundObject.getTime();
   }
 
-  /* prettyTime(){
-    const duration = player.getDuration();
-    const min = Math.floor(duration/60)
-    const sec = duration - min * 60;
-    const time = duration - hours * 3600;
-    should include hours eventually
-    console.log(duration,min,sec,time);
-    return(min+":"+sec);
-  } */
+prettyTime(){
+    const time = player.getTime();
+    const hrs = Math.floor(time/3600);
+    const min = Math.floor((time -(hrs * 3600)) / 60);
+    const sec = time - (hrs * 3600) - (min * 60);
+
+    if(hrs < 10){hrs = '0'+hrs;}
+    if(min < 10){min = '0'+min;}
+    if(sec < 10){sec = '0'+sec;}
+
+    this.songduration = (hrs+':'+min+":"+sec);
+  }
 
   playPause (song = this.currentlyPlaying) {
     if (this.currentlyPlaying !== song) {
