@@ -14,17 +14,17 @@ class Player {
     return this.soundObject.getTime();
   }
 
-prettyTime(){
-    const time = player.getTime();
+  prettyTime(time){
+    time = player.getDuration();
     const hrs = Math.floor(time/3600);
-    const min = Math.floor((time -(hrs * 3600)) / 60);
+    const min = Math.floor((time-(hrs * 3600)) / 60);
     const sec = time - (hrs * 3600) - (min * 60);
 
     if(hrs < 10){hrs = '0'+hrs;}
     if(min < 10){min = '0'+min;}
     if(sec < 10){sec = '0'+sec;}
 
-    this.songduration = (hrs+':'+min+":"+sec);
+    return hrs+':'+min+":"+sec;
   }
 
   playPause (song = this.currentlyPlaying) {
