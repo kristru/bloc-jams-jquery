@@ -36,12 +36,13 @@
 
   setInterval(()=>{
     if (player.playState !== 'playing'){return;}
-    const currentTime = player.prettyTime(player.getTime());
-    const duration = player.prettyTime(player.getDuration());
+    const currentTime = player.getTime();
+    const duration = player.getDuration();
     const percent = (currentTime / duration) * 100;
-    $('#time-control .current-time').text(currentTime);
+    console.log(currentTime, percent);
+    $('#time-control .current-time').text(player.prettyTime(currentTime));
     $('#time-control input').val(percent);
-    $('#time-control .total-time').text(duration);
+    $('#time-control .total-time').text(player.prettyTime(duration));
   },1000);
 
 
